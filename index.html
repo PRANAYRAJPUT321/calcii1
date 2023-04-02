@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>calculator</title>
+    <style>
+        .calculator-container
+        {
+            height: 470px;
+            width: 370px;
+            background: linear-gradient( rgb(237, 236, 238),rgb(58, 3, 113),rgb(120, 78, 162));
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 100px;
+            border-radius: 15px;
+            box-sizing: border-box;
+            box-shadow: 0px 8px 6px 6px rgb(113, 187, 206);
+        }
+        .brand-name
+        {
+            color:rgb(10, 8, 12);
+            font-size: 30px;
+            margin: 20px;
+            padding-top: 10px;
+        }
+        .calculator-screen
+        {
+            font-size: 43px;
+            width: 335px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 15px;
+            background-color: rgb(230, 243, 163);
+            box-shadow: 2px 2px 2px 2px rgb(25, 26, 26);
+        }
+        .buttons-container
+            {
+                display: flex ;
+                flex-direction: row;
+                justify-content:space-evenly
+                }
+        
+         .calculator-button
+        {
+            background-color: aliceblue;
+            height: 60px;
+            width: 60px;
+            margin: 5px;
+            font-size: 25px;
+            border:2px solid greenyellow;
+            border-radius: 50px;
+            box-shadow: 5px 5px black;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .calculator-button:hover{
+            box-shadow: 0 2px 5px rgb(231, 211, 211);
+            transition: 0.5s;
+        }
+        .bg-blue
+        {
+            background-color: rgb(118, 148, 218);
+            color: rgb(14, 14, 13);
+        }
+
+        .bg-red
+        {
+            background-color: rgb(238, 229, 105);
+            color: rgb(14, 14, 13);
+        }
+
+    </style>
+</head>
+
+<script>
+    function handleClick(val)
+    {
+     const inputBox = document.getElementById("calculator-screen");
+     inputBox.value = (inputBox.value+val);
+    }
+    function Calculate()
+        {
+            const inputBox = document.getElementById("calculator-screen");  
+            const ans = eval(inputBox.value);
+            inputBox.value = ans;
+        }
+    function clearscreen()
+    {
+        const inputBox = document.getElementById("calculator-screen");  
+        inputBox.value = " ";
+    }
+
+</script>
+
+<body>
+    
+    <div class="calculator-container">
+      <p class="brand-name"><U>PRANAY</U></p>
+
+      <input type="text" class="calculator-screen" id="calculator-screen"/><br><hr>
+
+      <div class="buttons-container">
+        <button class="calculator-button" onClick="handleClick(7)">7</button>
+        <button class="calculator-button" onClick="handleClick(8)">8</button>
+        <button class="calculator-button" onClick="handleClick(9)">9</button>
+        <button class="calculator-button bg-blue" onClick="handleClick('+')">+</button>
+      </div>
+      <div class="buttons-container">
+        <button class="calculator-button" onClick="handleClick(4)">4</button>
+        <button class="calculator-button" onClick="handleClick(5)">5</button>
+        <button class="calculator-button" onClick="handleClick(6)">6</button>
+        <button class="calculator-button bg-blue" onClick="handleClick('-')">-</button>
+      </div>
+      <div class="buttons-container">
+        <button class="calculator-button" onClick="handleClick(1)">1</button>
+        <button class="calculator-button" onClick="handleClick(2)">2</button>
+        <button class="calculator-button" onClick="handleClick(3)">3</button>
+        <button class="calculator-button bg-blue" onClick="handleClick('*')">*</button>
+      </div>
+      <div class="buttons-container">
+        <button class="calculator-button" onClick="clearscreen()">CE</button>
+        <button class="calculator-button" onClick="handleClick(0)">0</button>
+        <button class="calculator-button bg-red" onClick="Calculate()">=</button>
+        <button class="calculator-button bg-blue" onClick="handleClick('/')">/</button>
+      </div>
+    </div>
+</body>
+</html>
